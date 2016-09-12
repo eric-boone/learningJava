@@ -4,6 +4,15 @@ public class Palindromi {
 
     public static boolean palindrome(String text) {
         // write code here
+        String rev = "";
+        int num = 0;
+        while(num < text.length()){
+            rev = rev + text.charAt(text.length() - num - 1);
+            num++;
+        }
+        if(text.equals(rev)) {
+            return true;
+        }
         return false;
     }
 
