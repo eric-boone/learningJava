@@ -1,11 +1,13 @@
+
 public class MyDate {
+
     private int day;
     private int month;
     private int year;
 
-    public MyDate(int day, int montd, int year) {
+    public MyDate(int day, int month, int year) {
         this.day = day;
-        this.month = montd;
+        this.month = month;
         this.year = year;
     }
 
@@ -28,6 +30,35 @@ public class MyDate {
         }
 
         return false;
+    }
+
+    public int differenceInYears(MyDate comparedDate) {
+        int yearsDif;
+
+        if (this.earlier(comparedDate)) {
+            yearsDif = comparedDate.year - this.year;
+
+            if (this.month > comparedDate.month) {
+                yearsDif--;
+            }
+
+            if (this.month == comparedDate.month && this.day > comparedDate.day) {
+                yearsDif--;
+            }
+
+        } else {
+            yearsDif = this.year - comparedDate.year;
+
+            if (this.month < comparedDate.month) {
+                yearsDif--;
+            }
+
+            if (this.month == comparedDate.month && this.day < comparedDate.day) {
+                yearsDif--;
+            }
+        }
+
+        return yearsDif;
     }
 
 }
